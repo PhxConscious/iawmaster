@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import './App.css';
 import ReactGA from 'react-ga';
 
-import SignUpForm from "./Components/Reusable/SignUpForm";
+import SignUpForm from "./Components/Forms/SignUpForm";
 import Checkout from './Components/Reusable/Checkout';
-import LoginForm from './Components/Reusable/LoginForm'
+import LoginForm from './Components/Forms/SignInForm'
 
 export const initGA = () => {
     console.log('GA INIT');
-    ReactGA.initialize('UA-114277239-1')
+    ReactGA.initialize('')
 };
 
 export const logPageView = () => {
