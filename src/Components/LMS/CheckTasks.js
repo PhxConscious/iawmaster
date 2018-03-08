@@ -98,7 +98,7 @@ class CheckTasks extends React.Component {
 
       if(lengthOfQuestArr === parseInt(currentQuestion,10)+1 && lengthOfLessonArr === parseInt(currentLesson,10)+1){
         console.log("END OF THE UNIT")
-        nextUnit();
+
         this.setState({
           ...this.state,
           openUnitDialog: true,
@@ -107,6 +107,7 @@ class CheckTasks extends React.Component {
           unitDialogButton1: "continue",
           unitDialogButton2: "stay here"
         })
+
       } else if (lengthOfQuestArr === parseInt(currentQuestion,10)+1){
         this.setState({
           ...this.state,
@@ -137,6 +138,17 @@ class CheckTasks extends React.Component {
       }
     }
 
+    let newUnitHandler = () => {
+      nextQuestion();
+      nextLesson();
+      nextUnit();
+    }
+
+    let newLessonHandler = () => {
+      nextQuestion();
+      nextLesson();
+    }
+
     if(currentLessonObj){
 
       return(
@@ -161,7 +173,7 @@ class CheckTasks extends React.Component {
             <DialogActions>
               <Button
                 type='button'
-                onClick={nextLesson}
+                onClick={newLessonHandler}
               >{this.state.lessonDialogButton1}
               </Button>
               <Button
@@ -180,7 +192,7 @@ class CheckTasks extends React.Component {
             <DialogActions>
               <Button
                 type='button'
-                onClick={nextLesson}
+                onClick={newUnitHandler}
               >{this.state.unitDialogButton1}
               </Button>
               <Button
